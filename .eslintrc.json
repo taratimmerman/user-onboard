@@ -24,7 +24,7 @@
         "jest"
     ],
     "rules": {
-        "semi": 1,
+        "semi": 2,
         "import/order": [
             "error",
             {

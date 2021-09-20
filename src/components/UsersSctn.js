@@ -1,5 +1,7 @@
 import React from "react";
 
+import FormsSctn from "./FormsSctn";
+
 const UsersSctn = () => {
     return (
         <main>
@@ -9,6 +11,7 @@ const UsersSctn = () => {
 
                 </ul>
             </section>
+            <FormsSctn />
         </main>
     )
 };
