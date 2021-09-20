@@ -2,7 +2,8 @@ import React from "react";
 
 import "./App.css";
 
-import Header from "./components/Header"
+import Footer from "./components/Footer";
+import Header from "./components/Header";
 import UsersSctn from "./components/UsersSctn";
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
     <>
       <Header />
       <UsersSctn />
+      <Footer />
     </>
   );
 }
