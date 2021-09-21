@@ -1,23 +1,28 @@
 import React, { useState } from "react";
 
 import PropTypes from "prop-types";
+import { v4 as uuid } from "uuid";
 
 import FormsSctn from "./FormsSctn";
 import { users } from "./users";
 
-// const initialFormState = {
-//     id: '',
-//     name: '',
-//     email: '',
-// };
+const initialFormState = {
+    id: "",
+    name: "",
+    email: "",
+    password: ""
+};
 
 const UsersSctn = (props) => {
     const { visibility } = props;
 
     const [systemUsers, setSystemUsers] = useState(users);
-    // const [formValues, setFormValues] = useState(initialFormState);
+    const [formValues, setFormValues] = useState(initialFormState);
 
-    // const resetForm = () => setFormValues(initialFormState);
+    const createUser = (formData) => {
+        formData.id = uuid();
+        setSystemUsers(users.concat(formData));
+    };
 
     const editUser = () => {
         // TO DO
@@ -50,7 +55,12 @@ const UsersSctn = (props) => {
                     }
                 </ul>
             </section>
-            {visibility ? <FormsSctn /> : null}
+            {visibility ? <FormsSctn
+                values={formValues}
+                setValues={setFormValues}
+                initialState={initialFormState}
+                submitHandlers={{ createUser, editUser }}
+            /> : null}
         </main>
     );
 };
