@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 
+import PropTypes from "prop-types";
+
 import FormsSctn from "./FormsSctn";
 import { users } from "./users";
 
@@ -9,7 +11,9 @@ import { users } from "./users";
 //     email: '',
 // };
 
-const UsersSctn = () => {
+const UsersSctn = (props) => {
+    const { visibility } = props;
+
     const [systemUsers, setSystemUsers] = useState(users);
     // const [formValues, setFormValues] = useState(initialFormState);
 
@@ -30,19 +34,29 @@ const UsersSctn = () => {
                 <ul>
                     {
                         systemUsers.map((user, index) => {
-                           return <li key={user.id}>
+                            return <li key={user.id}>
                                 <h1>{user.name}</h1>
                                 <p>{user.email}</p>
-                                <button data-cy={`editBtn${index}`} onClick={() => editUser(user.id)}>Edit</button>
-                                <button data-cy={`deleteBtn${index}`} onClick={() => deleteUser(user.id)}>Delete</button>
+                                <button
+                                    data-cy={`editBtn${index}`}
+                                    onClick={() => editUser(user.id)}
+                                >Edit</button>
+                                <button
+                                    data-cy={`deleteBtn${index}`}
+                                    onClick={() => deleteUser(user.id)}
+                                >Delete</button>
                             </li>;
                         })
                     }
                 </ul>
             </section>
-            <FormsSctn />
+            {visibility ? <FormsSctn /> : null}
         </main>
     );
+};
+
+UsersSctn.propTypes = {
+    visibility: PropTypes.bool
 };
 
 export default UsersSctn;

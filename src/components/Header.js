@@ -1,21 +1,30 @@
 import React from "react";
 
-const Nav = () => {
+import PropTypes from "prop-types";
 
-    const addNewUser = () => {
-        // TBD
-    };
+const Nav = (props) => {
+    const {
+        toggleFunction
+    } = props;
+
 
     return (
         <header>
             <h1 id="pageTtl">System User Onboarding</h1>
             <nav>
                 <ul>
-                    <li><button id="newUsrBtn" onClick={addNewUser}>New User</button></li>
+                    <li><button
+                        id="newUsrBtn"
+                        onClick={() => toggleFunction()}
+                    >New User</button></li>
                 </ul>
             </nav>
         </header>
     );
+};
+
+Nav.propTypes = {
+    toggleFunction: PropTypes.func
 };
 
 export default Nav;

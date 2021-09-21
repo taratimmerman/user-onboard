@@ -27,6 +27,8 @@ describe('User Onboarding App', () => {
                 .should('exist');
             usersSctn()
                 .should('exist');
+            newUsrBtn()
+                .click();
             formSctn()
                 .should('exist');
             nameInput()
