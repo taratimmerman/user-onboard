@@ -38,6 +38,7 @@ const UsersSctn = (props) => {
                             return <li key={user.id}>
                                 <h1>{user.name}</h1>
                                 <p>{user.email}</p>
+                                <p className="role">{user.role}</p>
                                 <button
                                     data-cy={`deleteBtn${index}`}
                                     onClick={() => deleteUser(user.id)}

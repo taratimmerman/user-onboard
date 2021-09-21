@@ -71,6 +71,7 @@ describe('User Onboarding App', () => {
             cy.contains(/test user/i)
                 .next()
                 .next()
+                .next()
                 .click();
             cy.contains(/test user/i).should('not.exist');
             newUsrBtn()
