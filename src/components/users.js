@@ -4,11 +4,13 @@ export const users = [
     {
         id: uuid(),
         name: "Tim",
-        email: "tim@onlyemployee.com"
+        email: "tim@onlyemployee.com",
+        role: "security"
     },
     {
         id: uuid(),
         name: "Tina",
-        email: "tina@timsalterego.com"
+        email: "tina@timsalterego.com",
+        role: "admin"
     }
 ];

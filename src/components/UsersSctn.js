@@ -10,7 +10,7 @@ const initialFormState = {
     id: "",
     name: "",
     email: "",
-    password: ""
+    role: ""
 };
 
 const UsersSctn = (props) => {

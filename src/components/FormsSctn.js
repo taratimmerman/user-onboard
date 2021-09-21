@@ -57,14 +57,17 @@ const FormsSctn = (props) => {
                 <br></br>
 
                 <label
-                    htmlFor="password"
-                >Enter Password</label>
-                <input
-                    type="password"
-                    name="password"
-                    id="password"
-                    onChange={onChange}
-                />
+                    htmlFor="role"
+                >Choose Role</label>
+                <select
+                    id="role"
+                >
+                    <option value="">--Select--</option>
+                    <option value="admin">Administrator</option>
+                    <option value="security">Security</option>
+                    <option value="guest">Guest</option>
+
+                </select>
                 <br></br>
 
                 <label

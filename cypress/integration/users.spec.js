@@ -13,7 +13,7 @@ describe('User Onboarding App', () => {
     const formSctn = () => cy.get('#formSctn');
     const nameInput = () => cy.get('#name');
     const emailInput = () => cy.get('#email');
-    const passwordInput = () => cy.get('#password');
+    const roleSelect = () => cy.get('#role');
     const tosCheckBox = () => cy.get('[type="checkbox"]');
     const submitBtn = () => cy.get('#submitBtn');
     const cancelBtn = () => cy.get('#cancelBtn');
@@ -36,7 +36,7 @@ describe('User Onboarding App', () => {
                 .should('exist');
             emailInput()
                 .should('exist');
-            passwordInput()
+            roleSelect()
                 .should('exist');
             tosCheckBox()
                 .should('exist');
@@ -60,8 +60,8 @@ describe('User Onboarding App', () => {
                 .type('Test User');
             emailInput()
                 .type('testuser@testemail.com');
-            passwordInput()
-                .type('t3$tp@$$w0rd');
+            roleSelect()
+                .select('admin');
             tosCheckBox()
                 .check();
             submitBtn()
