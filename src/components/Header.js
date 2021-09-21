@@ -7,7 +7,6 @@ const Nav = (props) => {
         toggleFunction
     } = props;
 
-
     return (
         <header>
             <h1 id="pageTtl">System User Onboarding</h1>
@@ -16,6 +15,7 @@ const Nav = (props) => {
                     <li><button
                         id="newUsrBtn"
                         onClick={() => toggleFunction()}
+                        href="#formSctn"
                     >New User</button></li>
                 </ul>
             </nav>

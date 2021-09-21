@@ -6,8 +6,12 @@ const FormsSctn = (props) => {
     const {
         values,
         setValues,
-        submitHandlers: { createUser, editUser }
+        initialState,
+        createFunction,
+        toggleForm
     } = props;
+
+    const resetForm = () => setValues(initialState);
 
     const onChange = event => {
         const { name, value } = event.target;
@@ -16,15 +20,20 @@ const FormsSctn = (props) => {
 
     const onSubmit = event => {
         event.preventDefault();
-        values.id
-            ? editUser(values)
-            : createUser(values);
+        createFunction(values);
         event.target.reset();
+        resetForm();
+    };
+
+    const onCancel = () => {
+        resetForm();
+        toggleForm();
     };
 
     return (
         <section id="formSctn">
             <form onSubmit={onSubmit}>
+                <h3>Add New System User</h3>
                 <label
                     htmlFor="name"
                 >Enter Name</label>
@@ -73,13 +82,14 @@ const FormsSctn = (props) => {
                     id="submitBtn"
                     type="submit"
                 >
-                    Submit {values.id ? "Changes" : "User"}
+                    Submit User
                 </button>
                 <br></br>
 
                 <button
                     id="cancelBtn"
                     type="reset"
+                    onClick={onCancel}
                 >
                     Cancel
                 </button>
@@ -91,8 +101,9 @@ const FormsSctn = (props) => {
 FormsSctn.propTypes = {
     values: PropTypes.any,
     setValues: PropTypes.any,
-    submitHandlers: PropTypes.any,
-    initialState: PropTypes.object
+    initialState: PropTypes.object,
+    toggleForm: PropTypes.func,
+    createFunction: PropTypes.func
 };
 
 export default FormsSctn;

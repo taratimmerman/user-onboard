@@ -14,7 +14,7 @@ const initialFormState = {
 };
 
 const UsersSctn = (props) => {
-    const { visibility } = props;
+    const { visibility, toggleFunction } = props;
 
     const [systemUsers, setSystemUsers] = useState(users);
     const [formValues, setFormValues] = useState(initialFormState);
@@ -22,10 +22,6 @@ const UsersSctn = (props) => {
     const createUser = (formData) => {
         formData.id = uuid();
         setSystemUsers(users.concat(formData));
-    };
-
-    const editUser = () => {
-        // TO DO
     };
 
     const deleteUser = (id) => {
@@ -43,10 +39,6 @@ const UsersSctn = (props) => {
                                 <h1>{user.name}</h1>
                                 <p>{user.email}</p>
                                 <button
-                                    data-cy={`editBtn${index}`}
-                                    onClick={() => editUser(user.id)}
-                                >Edit</button>
-                                <button
                                     data-cy={`deleteBtn${index}`}
                                     onClick={() => deleteUser(user.id)}
                                 >Delete</button>
@@ -59,14 +51,16 @@ const UsersSctn = (props) => {
                 values={formValues}
                 setValues={setFormValues}
                 initialState={initialFormState}
-                submitHandlers={{ createUser, editUser }}
+                createFunction={createUser}
+                toggleForm={toggleFunction}
             /> : null}
         </main>
     );
 };
 
 UsersSctn.propTypes = {
-    visibility: PropTypes.bool
+    visibility: PropTypes.bool,
+    toggleFunction: PropTypes.func
 };
 
 export default UsersSctn;

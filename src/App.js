@@ -20,6 +20,7 @@ function App() {
         visibility={formVisibility}
       />
       <UsersSctn
+        toggleFunction={toggleForm}
         visibility={formVisibility}
       />
       <Footer />
